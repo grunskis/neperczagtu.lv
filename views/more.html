@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>Nepērc zagtu!</title>
+  <link rel="stylesheet" href="/static/css/blueprint/screen.css" type="text/css" media="screen, projection">
+  <link rel="stylesheet" href="/static/css/common.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="/static/css/more.css" type="text/css" media="screen">
+<body>
+  <div id="content" style="width: 480px">
+    <h2>Apraksts</h2>
+    <p>{{post.description|escape}}</p>
+    <h2>Nozagšanas vieta</h2>
+    <p><a href="/info/{{post.key.id}}" title="Atvērt karti" target="_blank"><img src="http://maps.google.com/maps/api/staticmap?size=480x320&maptype=roadmap&markers={{post.location.lat}},{{post.location.lon}}&sensor=false"></a></p>
+    <h2>Aptuvenais laiks kad nozagts</h2>
+    <p>{{ post.stolen_on|date:"d/m/Y" }} {% if post.stolen_at %}{{post.stolen_at|time:"H:i" }}{% endif %}</p>
+    <h2>Ievietoja</h2>
+    {% if post.user %}
+    <p>{{post.user.service|capfirst}} lietotājs <a href="{{post.user.url}}" target="_blank">{{post.user.name}}</a></p>
+    {% else %}
+    <p>Twitter lietotājs <a href="http://twitter.com/{{post.created_by}}" target="_blank">{{post.created_by}}</a></p>
+    {% endif %}
+  </div>
+</body>
+</html>
+

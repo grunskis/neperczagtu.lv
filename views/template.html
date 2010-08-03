@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>Nepērc zagtu!</title>
+  <link rel="stylesheet" href="/static/css/blueprint/screen.css" type="text/css" media="screen, projection">
+  <link rel="stylesheet" href="/static/css/common.css" type="text/css" media="screen">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  {% block meta %}{% endblock %}
+<body>
+  <div id="header">
+    <h1><span><a href="/" title="Uz sākumu">Nepērc zagtu!</a></span></h1>
+    <h2><span>Ja domā pirkt ričuku, paskaties vai nav zagts.</span></h2>
+    <h2><span>Ja nozaga, pastāsti par to citiem, lai neatbalsta zagļus!</span></h2>
+    {% block header %}{% endblock %}
+    <hr>
+  </div>
+  
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div>
+
+  <div id="footer">
+    <h3><span>Informācijai un ieteikumiem: <a href="mailto:info@neperczagtu.lv">info@neperczagtu.lv</a>!<span></h3>
+    <h3><span>Seko jaunumiem <a href="http://twitter.com/neperczagtu" target="_blank" title="Mūsu Twitter konts">@neperczagtu</a><span></h3>
+  </div>
+  
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-16147981-1");
+    pageTracker._trackPageview();
+    } catch(err) {}
+  </script>
+  
+  <!--[if lt IE 8]>
+  <script type="text/javascript">
+    $("body").load("/static/ie.html");
+  </script>
+  <![endif]-->
+</body>
+</html>

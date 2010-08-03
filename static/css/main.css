@@ -1,0 +1,93 @@
+#header span.plus {
+    margin-right: 5px;
+
+    background-image: url(/static/i/more.png);
+    background-repeat: no-repeat;
+
+    display: block;
+    height: 20px;
+    width: 20px;
+
+    float: left;
+}
+
+#header span.plus strong {
+    display: none;
+}
+
+.add {
+    font-size: 15px;
+}
+
+.add a {
+    text-decoration: underline;
+}
+
+ol#bikes {
+    padding-left: 0;
+}
+
+ol#bikes li {
+    list-style: none;
+    float: left;
+    margin-right: 5px;
+    background-color: #f7f7f7;
+    width: 250px;
+    border: 1px solid #ddd;
+    margin-top: 25px;
+}
+
+ol#bikes li p {
+    padding: 10px;
+    color: #333;
+}
+
+ol#bikes li p a {
+    font-family: courier;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+ol#bikes li p.datums {
+    color: #f7f7f7;
+    padding:5px;
+    margin-top:-18px;
+    font-size:18px;
+}
+
+ol#bikes li p.datums > span {
+    background: #ed145b;
+}
+
+ol#bikes li.found p.datums > span {
+    background: #86c42c;
+}
+
+ol#bikes li p.photo img {
+    padding: 0;
+    width:230px;
+    margin-left:0;
+    background: #ed145b;
+}
+
+ol#bikes li.found p.photo img {
+    background: #86c42c;
+}
+
+ol#bikes li p {
+    margin-bottom: 2px;
+}
+
+ol#bikes li p.datums a.more {
+    float: right;
+    margin-top: 5px;
+    
+    background-image: url(/static/i/more.png);
+    background-repeat: no-repeat;
+
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+

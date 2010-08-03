@@ -1,0 +1,59 @@
+body {
+  background-color: #eae9e5;
+  padding: 20px;
+}
+
+#content {
+    width: 900px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 15px;
+}
+
+#header, #footer {
+    font-family: Nimbus Mono L, Courier New, Courier6, monospace;
+    letter-spacing: -2px;
+}
+
+#header span, #footer span {
+    background: #f7f7f7;
+}
+
+#header h1 {
+    margin-bottom: 20px;
+}
+
+#header h2, #footer h3 {
+    margin: 0;
+    line-height: 1.3em;
+}
+
+#header a {
+    color: #111;
+}
+
+#header p, hr {
+    margin-top: 20px;
+}
+
+#footer {
+    clear: both;
+    padding-top: 10px;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,45 @@
+#velo {
+    width: 680px;
+}
+
+#velo ol {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+#velo ol li {
+    margin-bottom:10px;
+}
+
+#velo ol li.last {
+    margin-bottom: 0px;
+}
+
+label {
+    display: block;
+}
+
+textarea#description {
+    width: 400px;
+    height: 150px;
+}
+
+#errors {
+    //font-family:Courier New, Courier New, Courier6, monospace;
+    font-size: 14px;
+list-style: none;
+    padding: 0;
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+#errors p {
+    margin-bottom: 0;
+}
+
+#map {
+    width: 640px;
+    height: 480px
+}

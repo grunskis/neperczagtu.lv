@@ -1,0 +1,45 @@
+{% extends "template.html" %}
+
+{% block meta %}
+  <link rel="stylesheet" href="/static/css/main.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="/static/css/facebox.css" type="text/css" media="screen">
+  
+  <script type="text/javascript" src="/static/js/facebox.js"></script>
+  <script type="text/javascript" src="/static/js/masonry.js"></script>
+  <script type="text/javascript" src="/static/js/main.js"></script>
+{% endblock %}
+
+{% block header %}
+<p>
+  <span class="plus"><strong>+</strong></span>
+  <span class="add">Pievieno izmantojot savu <a href="/login/twitter">Twitter</a>, <a href="/login/draugiem">Draugiem</a> vai <a href="/login/facebook">Facebook</a> kontu...</span>
+</p>
+{% endblock %}
+
+{% block content %}
+  <ol id="bikes">
+    {% for post in posts %}
+    <li{% if post.found_at %} class="found"{% endif %}>
+      <div id="post-{{post.key.id}}">
+        <p class="datums">
+          {% if post.found_at %}
+          <span>Atrasts: {{ post.found_at|date:"d/m/Y" }}</span>
+          {% else %}
+          <span>Nozagts: {{ post.stolen_on|date:"d/m/Y" }}</span>
+          {% endif %}
+          <a class="more" rel="facebox" title="Vairāk informācijas..." href="more.html?p={{post.key}}"><span class="hidden">+</span></a>
+        </p>
+        <p class="photo">
+          <a href="/img_{{post.key}}-normal.png" rel="facebox"><img width="250" height="{{post.thumbnail_height|default_if_none:"160"}}" src="/img_{{post.key}}-small.png"></a>
+        </p>
+        <p>{{ post.description|escape }}</p>
+        {% if post.user %}
+        <p>Pievienoja: <a href="{{post.user.url}}" target="_blank">{{post.user.name}}</a></p>
+        {% else %}
+        <p>Pievienoja: <a href="http://twitter.com/{{post.created_by}}" target="_blank">{{post.created_by}}</a></p>
+        {% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+{% endblock %}

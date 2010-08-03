@@ -1,0 +1,37 @@
+{% extends "template.html" %}
+
+{% block meta %}
+<link rel="stylesheet" href="/static/css/info.css" type="text/css" media="screen">
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="/static/js/map.js"></script>
+{% endblock %}
+
+{% block content %}
+<h2>Apraksts</h2>
+<p>{{post.description|escape}}</p>
+<h2>Bilde</h2>
+<p><img src="/img_{{post.key}}-normal.png" title="Ričuks"></p>
+<h2>Nozagšanas vieta</h2>
+<div id="map"></div>
+<div class="hidden">
+  <p id="lat">{{post.location.lat}}</p>
+  <p id="lng">{{post.location.lon}}</p>
+  <p id="viewonly">yes</p>
+</div>
+<h2>Aptuvenais laiks kad nozagts</h2>
+<p>{{ post.stolen_on|date:"d/m/Y" }} {% if post.stolen_at %}{{post.stolen_at|time:"H:i" }}{% endif %}</p>
+{% if post.found_at %}
+<h2>Aptuvenais laiks kad atrasts</h2>
+<p>{{ post.found_at|date:"d/m/Y H:i" }}</p>
+{% endif %}
+<h2>Ievietoja</h2>
+{% if post.user %}
+<p>{{post.user.service|capfirst}} lietotājs <a href="{{post.user.url}}" target="_blank">{{post.user.name}}</a></p>
+{% else %}
+<p>Twitter lietotājs <a href="http://twitter.com/{{post.created_by}}" target="_blank">{{post.created_by}}</a></p>
+{% endif %}
+<p><a href="/">Uz sākumu</a></p>
+{% endblock %}
+
