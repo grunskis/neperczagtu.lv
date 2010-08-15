@@ -59,6 +59,7 @@ from urllib import unquote as urlunquote
 
 import logging
 
+from post import AuthToken
 
 class OAuthException(Exception):
     pass
@@ -73,27 +74,6 @@ def get_oauth_client(service, key, secret, callback_url):
     return TwitterClient(key, secret, callback_url)
   else:
     raise Exception, "Unknown OAuth service %s" % service
-
-
-class AuthToken(db.Model):
-  """Auth Token.
-
-  A temporary auth token that we will use to authenticate a user with a
-  third party website. (We need to store the data while the user visits
-  the third party website to authenticate themselves.)
-
-  TODO: Implement a cron to clean out old tokens periodically.
-  """
-
-  service = db.StringProperty(required=True)
-  token = db.StringProperty(required=True)
-  secret = db.StringProperty()
-  created = db.DateTimeProperty(auto_now_add=True)
-  name = db.StringProperty()
-  location = db.StringProperty()
-  id = db.StringProperty()
-  url = db.LinkProperty()
-
 
 class OAuthClient():
 

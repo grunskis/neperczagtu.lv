@@ -33,11 +33,7 @@
           <a href="/img_{{post.key}}-normal.png" rel="facebox"><img width="250" height="{{post.thumbnail_height|default_if_none:"160"}}" src="/img_{{post.key}}-small.png"></a>
         </p>
         <p>{{ post.description|escape }}</p>
-        {% if post.user %}
         <p>Pievienoja: <a href="{{post.user.url}}" target="_blank">{{post.user.name}}</a></p>
-        {% else %}
-        <p>Pievienoja: <a href="http://twitter.com/{{post.created_by}}" target="_blank">{{post.created_by}}</a></p>
-        {% endif %}
       </div>
     </li>
     {% endfor %}

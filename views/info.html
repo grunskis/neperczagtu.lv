@@ -27,11 +27,7 @@
 <p>{{ post.found_at|date:"d/m/Y H:i" }}</p>
 {% endif %}
 <h2>Ievietoja</h2>
-{% if post.user %}
 <p>{{post.user.service|capfirst}} lietotājs <a href="{{post.user.url}}" target="_blank">{{post.user.name}}</a></p>
-{% else %}
-<p>Twitter lietotājs <a href="http://twitter.com/{{post.created_by}}" target="_blank">{{post.created_by}}</a></p>
-{% endif %}
 <p><a href="/">Uz sākumu</a></p>
 {% endblock %}
 

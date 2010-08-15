@@ -1,6 +1,14 @@
 from google.appengine.ext import db
 
-import oauth
+class AuthToken(db.Model):
+  service = db.StringProperty(required=True)
+  token = db.StringProperty(required=True)
+  secret = db.StringProperty()
+  created = db.DateTimeProperty(auto_now_add=True)
+  name = db.StringProperty()
+  location = db.StringProperty()
+  id = db.StringProperty()
+  url = db.LinkProperty()
 
 class Post(db.Model):
   description = db.StringProperty(multiline=True)
@@ -14,11 +22,9 @@ class Post(db.Model):
   updated_at = db.DateTimeProperty(auto_now=True)
   location = db.GeoPtProperty()
   confirmed_at = db.DateTimeProperty() # null if not confirmed
-  created_by = db.StringProperty() # twitter username
   secret = db.StringProperty()
   found_at = db.DateTimeProperty() # null if not found
   found_comment = db.StringProperty(multiline=True)
-  service = db.StringProperty(default="Twitter")
   service_updated_at = db.DateTimeProperty()
-  user = db.ReferenceProperty(oauth.AuthToken)
+  user = db.ReferenceProperty(AuthToken)
 

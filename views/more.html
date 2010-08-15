@@ -14,11 +14,7 @@
     <h2>Aptuvenais laiks kad nozagts</h2>
     <p>{{ post.stolen_on|date:"d/m/Y" }} {% if post.stolen_at %}{{post.stolen_at|time:"H:i" }}{% endif %}</p>
     <h2>Ievietoja</h2>
-    {% if post.user %}
     <p>{{post.user.service|capfirst}} lietotājs <a href="{{post.user.url}}" target="_blank">{{post.user.name}}</a></p>
-    {% else %}
-    <p>Twitter lietotājs <a href="http://twitter.com/{{post.created_by}}" target="_blank">{{post.created_by}}</a></p>
-    {% endif %}
   </div>
 </body>
 </html>
