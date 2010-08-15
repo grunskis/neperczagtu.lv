@@ -9,6 +9,8 @@ from django.utils import simplejson as json
 
 import oauth, helper, config, urllib, secret
 
+from post import AuthToken
+
 DRAUGIEM_APP_ID="2256"
 FACEBOOK_APP_ID = "119851754705738"
 
@@ -46,7 +48,7 @@ class DraugiemLoginHandler(BaseLoginHandler):
                     logging.error('User has no name :)')
                     return self.redirect('/')
                 
-                user = oauth.AuthToken(name=username, token=result['apikey'], service='draugiem')
+                user = AuthToken(name=username, token=result['apikey'], service='draugiem')
                 if 'place' in result:
                     user.location = result['place']
                 user.url = db.Link('http://www.draugiem.lv/friend/?%s' % result['uid'])
@@ -85,7 +87,7 @@ class FacebookLoginHandler(BaseLoginHandler):
             logging.info(profile) # log users profile
 
             id = str(profile['id'])
-            user = oauth.AuthToken(id=id, name=profile["name"], token=access_token, service='facebook')
+            user = AuthToken(id=id, name=profile["name"], token=access_token, service='facebook')
             if 'hometown' in profile:
                 location = profile['hometown']['name']
             user.url = db.Link(profile['link'])

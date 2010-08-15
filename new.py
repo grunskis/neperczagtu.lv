@@ -10,11 +10,11 @@ from google.appengine.api import urlfetch
 
 import helper, oauth, config, logging, secret
 
-from post import Post
+from post import *
 
 class NewHandler(webapp.RequestHandler):
     def get_auth_token(self, token, service):
-        return oauth.AuthToken.gql("WHERE service=:1 AND token=:2", service, token).get()
+        return AuthToken.gql("WHERE service=:1 AND token=:2", service, token).get()
 
     def draugiem_new(self, auth_token):
         return self.get_auth_token(auth_token, 'draugiem')
