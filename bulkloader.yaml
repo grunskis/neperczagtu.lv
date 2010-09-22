@@ -30,10 +30,6 @@ transformers:
   connector_options:
     # TODO: Add connector options here--these are specific to each connector.
   property_map:
-    - property: __key__
-      external_name: key
-      export_transform: transform.key_id_or_name_as_string
-
     - property: created
       external_name: created
       # Type: Date/Time Stats: 156 properties of this type in this kind.
@@ -75,10 +71,6 @@ transformers:
   connector_options:
     # TODO: Add connector options here--these are specific to each connector.
   property_map:
-    - property: __key__
-      external_name: key
-      export_transform: transform.key_id_or_name_as_string
-
     - property: confirmed_at
       external_name: confirmed_at
       # Type: Date/Time Stats: 20 properties of this type in this kind.
