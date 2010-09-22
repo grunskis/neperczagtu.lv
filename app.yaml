@@ -11,6 +11,7 @@ skip_files:
 - ^(.*/)?\..*
 - ^(.*/)?.*\.bak$
 - ^(.*/)?.*\.template$
+- ^dumps$
 
 handlers:
 - url: /remote_api
