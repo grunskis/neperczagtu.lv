@@ -52,6 +52,10 @@ handlers:
 - url: /static
   static_dir: static
 
+- url: /admin/cleanup
+  script: cleanup.py
+  login: admin
+
 - url: /.*
   static_files: static/404.html
   upload: static/404.html
