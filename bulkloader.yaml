@@ -21,6 +21,7 @@ python_preamble:
 - import: google.appengine.api.datastore
 - import: google.appengine.api.users
 - import: google.appengine.ext.db
+- import: impexp
 
 transformers:
 
@@ -117,8 +118,8 @@ transformers:
     - property: photo
       external_name: photo
       # Type: Blob Stats: 23 properties of this type in this kind.
-      import_transform: transform.blobproperty_from_base64
       export_transform: base64.b64encode
+      import_transform: impexp.blobproperty_from_base64_with_img_resize(600)
 
     - property: secret
       external_name: secret
@@ -145,8 +146,8 @@ transformers:
     - property: thumbnail
       external_name: thumbnail
       # Type: Blob Stats: 23 properties of this type in this kind.
-      import_transform: transform.blobproperty_from_base64
       export_transform: base64.b64encode
+      import_transform: impexp.blobproperty_from_base64_with_img_resize(250)
 
     - property: thumbnail_height
       external_name: thumbnail_height
