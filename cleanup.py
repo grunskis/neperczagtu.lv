@@ -4,6 +4,7 @@
 
 # delete post.created_by field
 # delete post.service field
+# delete post.thumbnail_height field
 # create user object for posts that doesn't already have it
 
 from google.appengine.ext import webapp, db
@@ -42,6 +43,8 @@ class CleanupHandler(webapp.RequestHandler):
             delattr(current_post, 'created_by')
         if hasattr(current_post, 'service'):
             delattr(current_post, 'service')
+        if hasattr(current_post, 'thumbnail_height'):
+            delattr(current_post, 'thumbnail_height')
         current_post.put()
     
         context = {

@@ -62,10 +62,8 @@ class EditHandler(webapp.RequestHandler):
         photo = self.request.get("photo")
         if photo:
             try:
-                thumbnail = images.resize(photo, 250)
                 post.photo = db.Blob(images.resize(photo, 600))
-                post.thumbnail = db.Blob(thumbnail)
-                post.thumbnail_height = images.Image(thumbnail).height
+                post.thumbnail = db.Blob(images.resize(photo, 250))
             except Exception, e:
                 logging.error(e)
                 errors.append('Kļūda apstrādājot bildi (maksimāli pieļaujamais bildes izmērs ir 1 Mb)')

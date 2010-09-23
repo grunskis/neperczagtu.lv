@@ -17,7 +17,6 @@ class Post(db.Model):
   email = db.EmailProperty()
   photo = db.BlobProperty()
   thumbnail = db.BlobProperty()
-  thumbnail_height = db.IntegerProperty()
   created_at = db.DateTimeProperty(auto_now_add=True)
   updated_at = db.DateTimeProperty(auto_now=True)
   location = db.GeoPtProperty()
@@ -28,3 +27,6 @@ class Post(db.Model):
   service_updated_at = db.DateTimeProperty()
   user = db.ReferenceProperty(AuthToken)
 
+  def thumbnail_height(self):
+    from google.appengine.api import images
+    return images.Image(self.thumbnail).height

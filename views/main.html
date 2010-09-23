@@ -30,7 +30,7 @@
           <a class="more" rel="facebox" title="Vairāk informācijas..." href="more.html?p={{post.key}}"><span class="hidden">+</span></a>
         </p>
         <p class="photo">
-          <a href="/img_{{post.key}}-normal.png" rel="facebox"><img width="250" height="{{post.thumbnail_height|default_if_none:"160"}}" src="/img_{{post.key}}-small.png"></a>
+          <a href="/img_{{post.key}}-normal.png" rel="facebox"><img width="250" height="{{post.thumbnail_height}}" src="/img_{{post.key}}-small.png"></a>
         </p>
         <p>{{ post.description|escape }}</p>
         <p>Pievienoja: <a href="{{post.user.url}}" target="_blank">{{post.user.name}}</a></p>
