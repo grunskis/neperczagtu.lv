@@ -30,3 +30,13 @@ class Post(db.Model):
   def thumbnail_height(self):
     from google.appengine.api import images
     return images.Image(self.thumbnail).height
+
+  def status(self):
+    result = "found"
+    
+    if self.confirmed_at is None:
+      result = "unconfirmed"
+    elif self.found_at is None:
+      result = "stolen"
+
+    return result

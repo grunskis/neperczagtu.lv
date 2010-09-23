@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nepērc zagtu!</title>
+    <style>
+      .found { background-color: #86c42c; }
+      .unconfirmed { background-color: #ed145b; }
+    </style>
+  </head>
+  <body>
+    <ol id="bikes">
+    {% for post in posts %}
+    <li{% if post.found_at %} class="found"{% endif %}>
+      <div id="post-{{post.key.id}}" class="{{post.status}}">
+        <p class="datums">
+          {% if post.found_at %}
+          <span>Atrasts: {{ post.found_at|date:"d/m/Y" }}</span>
+          {% else %}
+          <span>Nozagts: {{ post.stolen_on|date:"d/m/Y" }}</span>
+          {% endif %}
+          <a class="more" rel="facebox" title="Vairāk informācijas..." href="/more.html?p={{post.key}}"><span class="hidden">+</span></a>
+        </p>
+        <p>{{ post.description|escape }}</p>
+        <p>Pievienoja: <a href="{{post.user.url}}" target="_blank">{{post.user.name}}</a></p>
+        <p>created: {{post.created_at}}</p>
+        <p>updated: {{post.updated_at}}</p>
+        <p>status: {{post.status}}</p>
+      </div>
+      <div>
+        <p>
+          <a href="/admin/posts/{{post.key.id}}/delete">delete</a>
+          {% ifequal post.status "unconfirmed" %}
+          | <a href="/admin/posts/{{post.key.id}}/confirm">confirm</a>
+          {% endifequal %}
+        </p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+  </body>
+</html>
+

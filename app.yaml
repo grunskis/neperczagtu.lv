@@ -13,6 +13,11 @@ skip_files:
 - ^(.*/)?.*\.template$
 - ^dumps$
 
+admin_console:
+  pages:
+  - name: Posts
+    url: /admin/posts
+
 handlers:
 - url: /remote_api
   script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
@@ -59,6 +64,14 @@ handlers:
 
 - url: /admin/cleanup
   script: cleanup.py
+  login: admin
+
+- url: /admin/posts
+  script: admin.py
+  login: admin
+
+- url: /admin/posts/(\d+)/(delete|edit|confirm)
+  script: admin.py
   login: admin
 
 - url: /.*
