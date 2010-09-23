@@ -66,8 +66,9 @@ class NewHandler(webapp.RequestHandler):
 
         post = Post()
         post.user = user
-        
-        self.response.out.write(helper.render('new', {'post': post}))
+
+        today = datetime.date.today().strftime("%Y-%m-%d")
+        self.response.out.write(helper.render('new', {'post': post, 'today': today}))
 
     def post(self):
         errors = []

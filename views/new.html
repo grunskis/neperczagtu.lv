@@ -32,11 +32,11 @@
         <li>
           <label for="description">Informācija par velosipēdu</label>
           <textarea id="description" name="description" rows="10" maxlength="450" required autofocus>{{post.description|default_if_none:""}}</textarea>
-          <p>Atlikušas <span class="remaining">500</span> zīmes</p>
+          <p>Atlikušas <span class="remaining">450</span> zīmes</p>
         </li>
         <li>
           <label for="date">Datums kad nozagts</label>
-          <input id="date" name="date" type="date" class="date_input" size="30" placeholder="piemēram, 2010-02-28" value="{{post.stolen_on|default_if_none:""}}" required>
+          <input id="date" name="date" type="date" class="date_input" size="30" placeholder="piemēram, {{today}}" value="{{post.stolen_on|default_if_none:""}}" required>
         </li>
         <li>
           <label for="time">Aptuvenais laiks kad nozagts</label>
@@ -67,7 +67,7 @@
       </ol>
     </fieldset>
     <fieldset>
-      <button type=submit>Izveidot</button>
+      <button type="submit">Izveidot</button>
     </fieldset>
   </form>
 {% endblock %}
