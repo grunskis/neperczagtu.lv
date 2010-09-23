@@ -13,6 +13,12 @@ skip_files:
 - ^(.*/)?.*\.template$
 - ^dumps$
 
+derived_file_type:
+- python_precompiled
+
+error_handlers:
+  - file: views/500.html
+
 admin_console:
   pages:
   - name: Posts
