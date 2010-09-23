@@ -17,6 +17,10 @@ handlers:
 - url: /remote_api
   script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
   login: admin
+
+- url: /cron/cleanup_auth_tokens
+  script: cron.py
+  login: admin
   
 - url: /favicon\.ico
   static_files: static/favicon.ico

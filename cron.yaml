@@ -1,0 +1,4 @@
+cron:
+- description: weekly auth token cleanup
+  url: /cron/cleanup_auth_tokens
+  schedule: every sunday 05:00
